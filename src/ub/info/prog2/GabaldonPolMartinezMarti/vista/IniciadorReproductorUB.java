@@ -1,14 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ub.info.prog2.GabaldonPolMartinezMarti.vista;
+
+import java.util.Scanner;
 
 /**
  *
  * @author polg24
  */
 public class IniciadorReproductorUB {
-    
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        ReproductorUB2 repro = new ReproductorUB2();
+        repro.gestioReproductorUB(sc);
+    }
 }
