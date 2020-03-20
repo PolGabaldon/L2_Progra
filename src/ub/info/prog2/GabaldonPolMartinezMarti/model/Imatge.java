@@ -1,9 +1,22 @@
 package ub.info.prog2.GabaldonPolMartinezMarti.model;
+import ub.info.prog2.GabaldonPolMartinezMarti.controlador.Motor;
+import ub.info.prog2.utils.ReproException;
 
-/**
- *
- * @author polg24
- */
-public class Imatge {
+
+public class Imatge extends FitxerMultimedia{
+    
+    private final int alcada, amplada, resolucio;
+    
+    public Imatge(String cami, String autor, String codec, int alcada, int amplada, Motor motor){
+        super(cami, codec, motor, autor);
+        this.alcada = alcada;
+        this.amplada = amplada;
+        resolucio = alcada * amplada;
+    }
+
+    @Override
+    public void reproduir() throws ReproException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

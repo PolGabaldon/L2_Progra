@@ -1,14 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ub.info.prog2.GabaldonPolMartinezMarti.model;
+import java.io.File;
+import ub.info.prog2.GabaldonPolMartinezMarti.controlador.Motor;
+import ub.info.prog2.utils.ReproException;
 
-/**
- *
- * @author polg24
- */
-public class Audio {
+
+public class Audio extends FitxerMultimedia{
+    
+    private final int kbps;
+    private final File fitxerImatge;
+    
+    public Audio(String cami, File fitxerImatge, String autor, String codec, int kbps, Motor motor){
+        super(cami, codec, motor, autor);
+        this.kbps = kbps;
+        this.fitxerImatge = fitxerImatge;
+    }
+
+    @Override
+    public void reproduir() throws ReproException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
