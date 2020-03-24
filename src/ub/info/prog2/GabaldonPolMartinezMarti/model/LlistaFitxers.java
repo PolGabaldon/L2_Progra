@@ -10,8 +10,8 @@ import ub.info.prog2.utils.ReproException;
  * @author GabaldonPolMartinezMarti
  */
 public class LlistaFitxers implements InFileList, Serializable{
-    private ArrayList<File> llistaFitxers;
-    private int midaMax;
+    protected ArrayList<File> llistaFitxers;
+    protected int midaMax;
     
     /**
      * Constructor que inicialitza l'ArrayList i la mida màxima a 100 per defecte.

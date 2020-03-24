@@ -14,7 +14,6 @@ import ub.info.prog2.utils.ReproException;
  * @author polg24
  */
 public class PortafoliFitxersMultimedia extends LlistaFitxers{
-    private ArrayList<File> llistaFitxers;
     private String titol;
     private static String autor;
     
@@ -65,7 +64,7 @@ public class PortafoliFitxersMultimedia extends LlistaFitxers{
            
     }
     
-    public boolean autorCorrecte(File file){
+    private boolean autorCorrecte(FitxerMultimedia file){
         if(file.getAutor().equals(this.autor))
             return true;
         else
@@ -73,48 +72,6 @@ public class PortafoliFitxersMultimedia extends LlistaFitxers{
     }
  
 
-    /**
-     * Elimina la primera instància del fitxer passat per paràmetre que troba.
-     * @param file Fitxer que es desitja eliminar.
-     */
-    @Override
-    public void removeFitxer(File file){
-        int id = llistaFitxers.indexOf(file);
-        llistaFitxers.remove(id);
-    }
 
-    /**
-     * Mètode per obtenir el fitxer de l'ArrayList que es troba a la posició i.
-     * @param i Index del fitxer que es vol obtenir.
-     * @return Fitxer a la posició i.
-     */
-    @Override
-    public File getAt(int i) {
-        return llistaFitxers.get(i);
-    }
-
-    /**
-     * Buida l'ArrayList
-     */
-    @Override
-    public void clear() {
-        llistaFitxers.clear();
-    }
-
-   
-    
-    /**
-     * Permet la representació de l'ArrayList de fitxers mitjançact un String.
-     * @return String en el qual es representa l'ArrayList tractat.
-     */
-    @Override
-    public String toString(){
-        System.out.println("Carpeta Fitxers:\n==============");
-        String s = "";
-        for(int i = 0; i < llistaFitxers.size(); i++){
-            s += "[" + (i + 1) + "] " + llistaFitxers.get(i).toString() + "\n";
-        }
-        return s;
-    }
     
 }
