@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */
 package ub.info.prog2.GabaldonPolMartinezMarti.controlador;
+import ub.info.prog2.utils.MotorBasic;
+
 
 /**
  *
  * @author polg24
  */
-public class Motor {
+public class Motor extends MotorBasic{
     
 }
