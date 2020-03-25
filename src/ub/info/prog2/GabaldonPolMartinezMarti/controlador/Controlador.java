@@ -7,19 +7,24 @@ package ub.info.prog2.GabaldonPolMartinezMarti.controlador;
 import java.util.List;
 import ub.info.prog2.utils.InControlador;
 import ub.info.prog2.utils.ReproException;
+import ub.info.prog2.GabaldonPolMartinezMarti.model.Dades;
 /**
  *
  * @author polg24
  */
 public class Controlador implements InControlador {
+    private Dades dades;
     
+    public Controlador(){
+        dades = new Dades();
+    }
     
     public void addAudio(String camiFitxerAudio, String camiFitxerImatge, String autor, String codec, int kbps) throws ReproException{
-        
+        dades.addAudio(camiFitxerAudio,camiFitxerImatge,autor,codec,kbps);
     }
 
     public void addImatge(String cami, String autor, String codec, int pixelsAlcada, int pixelsAmplada) throws ReproException{
-        
+        dades.addImatge(cami, autor, codec, pixelsAlcada, pixelsAmplada);
     }
 
     public List<String> showRepositori(){
