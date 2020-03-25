@@ -1,8 +1,14 @@
 package ub.info.prog2.GabaldonPolMartinezMarti.model;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import ub.info.prog2.GabaldonPolMartinezMarti.controlador.Motor;
 import ub.info.prog2.utils.ReproException;
 
@@ -14,6 +20,14 @@ public class Dades implements Serializable{
     public Dades(){
         repositori = new RepositoriFitxersMultimedia();
         portafolis = new ArrayList<>();
+    }
+    
+    public RepositoriFitxersMultimedia getRepositori(){
+        return repositori;
+    }
+    
+    public ArrayList<PortafoliFitxersMultimedia> getPortafolis(){
+        return portafolis;
     }
     
     public void addAudio(String camiFitxerAudio, String camiFitxerImatge, String autor, String codec, int kbps) throws ReproException{
@@ -41,15 +55,65 @@ public class Dades implements Serializable{
             throw new ReproException("Error a l'afegir el fitxer.");
     }
     
-    public boolean isAudio(String ext){
-        if (ext.equals("mp3") || ext.equals("wav"))
-            return true;
-        return false;
+    private boolean isAudio(String ext){
+        return ext.equals("mp3") || ext.equals("wav");
     }
     
-    public boolean isImatge(String ext){
-        if (ext.equals("png") || ext.equals("jpg") || ext.equals("jpeg"))
-            return true;
-        return false;
+    private boolean isImatge(String ext){
+        return ext.equals("png") || ext.equals("jpg") || ext.equals("jpeg");
+    }
+    
+    public List<String> showRepositori(){
+        String s = repositori.toString();
+        ArrayList<String> list = new ArrayList<>();
+        list.add(s);
+        return list;
+    }
+    
+    public void removeFitxer(int i) throws ReproException{
+        repositori.removeFitxer(i);
+    }
+    
+    public void saveDades(String cami) throws ReproException {
+        File fitxer = new File(cami);
+        if (fitxer.exists()){
+            try{
+                FileOutputStream fout = new FileOutputStream(fitxer);            
+                ObjectOutputStream oos = new ObjectOutputStream(fout);            
+                oos.writeObject(this);
+                fout.close();
+                oos.close();
+                System.out.println("Llista guardada exitosament.");
+            }
+            catch (IOException e){
+                throw new ReproException(e.getMessage());
+            }
+        }
+        else{
+            throw new ReproException("El fitxer on es volen guardar les dades no existeix.");
+        }
+        
+    }
+    
+    public void loadDades(String cami) throws ReproException {
+        File fitxer = new File(cami);
+        if (fitxer.exists()){
+            try{
+                FileInputStream fin = new FileInputStream(fitxer);           
+                ObjectInputStream ois = new ObjectInputStream(fin);            
+                Dades d = (Dades)ois.readObject();
+                repositori = d.getRepositori();
+                portafolis = d.getPortafolis();
+                fin.close();
+                ois.close();
+                System.out.println("Llista guardada exitosament.");
+            }
+            catch (IOException | ClassNotFoundException e){
+                throw new ReproException(e.getMessage());
+            }
+        }
+        else{
+            throw new ReproException("El fitxer on es volen guardar les dades no existeix.");
+        }
     }
 }

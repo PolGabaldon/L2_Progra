@@ -70,6 +70,16 @@ public class LlistaFitxers implements InFileList, Serializable{
         int id = llistaFitxers.indexOf(file);
         llistaFitxers.remove(id);
     }
+    
+    public void removeFitxer(int i) throws ReproException{
+        if(0 <= i && i< llistaFitxers.size()){
+            llistaFitxers.remove(i);
+        }
+        else {
+            throw new ReproException("Index fora de límits");
+        }
+            
+    }
 
     /**
      * Mètode per obtenir el fitxer de l'ArrayList que es troba a la posició i.

@@ -6,7 +6,6 @@
 package ub.info.prog2.GabaldonPolMartinezMarti.model;
 
 import java.io.File;
-import java.util.ArrayList;
 import ub.info.prog2.utils.ReproException;
 
 /**
