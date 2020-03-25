@@ -35,19 +35,18 @@ public class PortafoliFitxersMultimedia extends LlistaFitxers{
      */
     @Override
     public void addFitxer(File file) throws ReproException {
-        if(file.exists()){
-                        
+                       
         
-            if(llistaFitxers.size()==0){
-                autor = file.getAutor();
-                llistaFitxers.add(file);
-                System.out.println("Fitxer afegit.");
+            if(getSize()==0){
+                FitxerMultimedia fitxer = (FitxerMultimedia) file;
+                autor = fitxer.getAutor();
+                super.addFitxer(file);
         
             }
             else{
-                if(autorCorrecte(file)){
-                    llistaFitxers.add(file);
-                    System.out.println("Fitxer afegit.");
+                FitxerMultimedia fitxer = (FitxerMultimedia) file;
+                if(autorCorrecte(fitxer)){
+                    super.addFitxer(file);
                 }
                 else{
                     throw new ReproException("Autor incorrecte");
@@ -55,14 +54,10 @@ public class PortafoliFitxersMultimedia extends LlistaFitxers{
                 
             }
 
-        }
-        else{
-            throw new ReproException("El fitxer no existeix");
-            
- 
-        }
-           
     }
+
+           
+    
     
     private boolean autorCorrecte(FitxerMultimedia file){
         if(file.getAutor().equals(this.autor))
