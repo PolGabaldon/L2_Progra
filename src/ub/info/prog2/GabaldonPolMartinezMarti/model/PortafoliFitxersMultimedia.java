@@ -6,7 +6,6 @@
 package ub.info.prog2.GabaldonPolMartinezMarti.model;
 
 import java.io.File;
-import java.util.ArrayList;
 import ub.info.prog2.utils.ReproException;
 
 /**
@@ -17,15 +16,15 @@ public class PortafoliFitxersMultimedia extends LlistaFitxers{
     private String titol;
     private static String autor;
     
-    /**
-     * Constructor que inicialitza l'ArrayList i la mida màxima a 100 per defecte.
-     */
-    public PortafoliFitxersMultimedia(int midaMax, String titol){
-        super(midaMax);
+    
+    public PortafoliFitxersMultimedia(String titol){
+        super();
         this.titol = titol;
     }
     
- 
+    public String getTitol() {
+        return titol;
+    }
 
     /**
      * Si el fitxer passat per paràmetre existeix, l'afegeix a l'ArrayList i si 
@@ -37,27 +36,22 @@ public class PortafoliFitxersMultimedia extends LlistaFitxers{
     public void addFitxer(File file) throws ReproException {
                        
         
-            if(getSize()==0){
-                FitxerMultimedia fitxer = (FitxerMultimedia) file;
-                autor = fitxer.getAutor();
-                super.addFitxer(file);
+        if(getSize()==0){
+            FitxerMultimedia fitxer = (FitxerMultimedia) file;
+            autor = fitxer.getAutor();
+            super.addFitxer(file);
         
+        }
+        else{
+            FitxerMultimedia fitxer = (FitxerMultimedia) file;
+            if(autorCorrecte(fitxer)){
+                super.addFitxer(file);
             }
             else{
-                FitxerMultimedia fitxer = (FitxerMultimedia) file;
-                if(autorCorrecte(fitxer)){
-                    super.addFitxer(file);
-                }
-                else{
-                    throw new ReproException("Autor incorrecte");
-                }
-                
-            }
-
+                throw new ReproException("Autor incorrecte");
+            }   
+        }
     }
-
-           
-    
     
     private boolean autorCorrecte(FitxerMultimedia file){
         if(file.getAutor().equals(this.autor))
@@ -65,8 +59,4 @@ public class PortafoliFitxersMultimedia extends LlistaFitxers{
         else
             return false;
     }
- 
-
-
-    
 }

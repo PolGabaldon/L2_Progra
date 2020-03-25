@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import ub.info.prog2.GabaldonPolMartinezMarti.controlador.Motor;
 import ub.info.prog2.utils.ReproException;
@@ -114,6 +115,61 @@ public class Dades implements Serializable{
         }
         else{
             throw new ReproException("El fitxer on es volen guardar les dades no existeix.");
+        }
+    }
+    
+    public void addPortafoli(String titol) throws ReproException{
+        if (!portafoliExists(titol)) {
+            PortafoliFitxersMultimedia portafoli = new PortafoliFitxersMultimedia(titol);
+            portafolis.add(portafoli);
+        }
+        else{
+            throw new ReproException("Ja existeix un portafoli amb aquest titol.");
+        }
+    }
+    
+    public boolean portafoliExists(String titol){
+        Iterator<PortafoliFitxersMultimedia> iter = portafolis.iterator();
+        boolean exists = false;
+        while(iter.hasNext() && !exists){
+            if(iter.next().getTitol().equals(titol)) {
+                exists = true;
+            }
+        }
+        return exists;
+    }
+    
+    public List<String> showPortafolis() {
+        String s = "";
+        Iterator<PortafoliFitxersMultimedia> iter = portafolis.iterator();
+        while (iter.hasNext()) {
+            s += "-" + iter.next().getTitol() + "\n";
+        }
+        
+        ArrayList<String> list = new ArrayList<>();
+        list.add(s);
+        return list;
+    }
+    
+    public List<String> showPortafoli(String titol) throws ReproException{
+        Iterator<PortafoliFitxersMultimedia> iter = portafolis.iterator();
+        PortafoliFitxersMultimedia portafoli = new PortafoliFitxersMultimedia("");
+        
+        if (portafoliExists(titol)) {
+            boolean trobat = false;
+            while (iter.hasNext() && !trobat) {
+                portafoli = iter.next();
+                if (portafoli.getTitol().equals(titol)) {
+                    trobat = true;
+                }
+            }
+            String s = portafoli.toString();
+            ArrayList<String> list = new ArrayList<>();
+            list.add(s);
+            return list;
+        }
+        else{
+            throw new ReproException("Aquest portafoli no existeix.");
         }
     }
 }

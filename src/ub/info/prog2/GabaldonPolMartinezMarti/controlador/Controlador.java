@@ -50,18 +50,18 @@ public class Controlador implements InControlador {
     }
 
     @Override
-    public void addPortafoli(String string) throws ReproException{
-        
+    public void addPortafoli(String titol) throws ReproException{
+        dades.addPortafoli(titol);
     }
 
     @Override
     public List<String> showPortafolis(){
-        
+        return dades.showPortafolis();
     }
     
     @Override
-    public List<String> showPortafoli(String string) throws ReproException{
-        
+    public List<String> showPortafoli(String titol) throws ReproException{
+        return dades.showPortafoli(titol);
     }
 
     @Override
