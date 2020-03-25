@@ -12,11 +12,11 @@ import ub.info.prog2.utils.ReproException;
  * @author polg24
  */
 public class Controlador implements InControlador {
-    public void addAudio(String string, String string1, String string2, String string3, int i) throws ReproException{
+    public void addAudio(String camiFitxerAudio, String camiFitxerImatge, String autor, String codec, int kbps) throws ReproException{
         
     }
 
-    public void addImatge(String string, String string1, String string2, int i, int i1) throws ReproException{
+    public void addImatge(String cami, String autor, String codec, int pixelsAlcada, int pixelsAmplada) throws ReproException{
         
     }
 
