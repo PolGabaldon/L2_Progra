@@ -46,7 +46,7 @@ public class LlistaFitxers implements InFileList, Serializable{
      * @param file Fitxer que es desitja afegir a l'ArrayList.
      * @throws ReproException Error llançat si el fitxer a afegir no existeix.
      */
-       @Override
+    @Override
     public void addFitxer(File file) throws ReproException {
         if(file.exists()){
             llistaFitxers.add(file);
@@ -56,7 +56,8 @@ public class LlistaFitxers implements InFileList, Serializable{
             throw new ReproException();
         }
     }
-        
+    
+  
       
     
 

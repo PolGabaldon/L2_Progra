@@ -32,9 +32,8 @@ public class RepositoriFitxersMultimedia extends LlistaFitxers{
      */
     @Override
     public void addFitxer(File file) throws ReproException {
-        if(isRepeated(file)){
-            llistaFitxers.add(file);
-            System.out.println("Fitxer afegit.");
+        if(!isCorrect(file)){
+            super.addFitxer(file);
         }
         else{
             throw new ReproException("El fitxer està repetit");
@@ -42,23 +41,20 @@ public class RepositoriFitxersMultimedia extends LlistaFitxers{
            
     }
     
-    public boolean isRepeated(FitxerMultimedia file) throws ReproException{
-        if(file.exists()){
-            int i = 0;
-            boolean repetit = false;
-            while(i < llistaFitxers.size() && !repetit){
-                if(llistaFitxers[i].equals(file))
-                    repetit = true;
-                else
-                    i++;               
-            }
-            return repetit;
+    public boolean isCorrect(File file) throws ReproException{
+        int i = 0;
+        boolean repetit = false;
+        while(i < getSize() && !repetit){
+            if(getAt(i).equals(file))
+                repetit = true;
+            else
+                i++;               
+        }
+        return repetit;
         
-        }
-        else{
-            throw new ReproException("El fitxer no existeix");
-        }
     }
+       
+}
 
     /**
      * Elimina la primera instància del fitxer passat per paràmetre que troba.
@@ -66,4 +62,4 @@ public class RepositoriFitxersMultimedia extends LlistaFitxers{
      */
 
     
-}
+

@@ -12,6 +12,8 @@ import ub.info.prog2.utils.ReproException;
  * @author polg24
  */
 public class Controlador implements InControlador {
+    
+    
     public void addAudio(String camiFitxerAudio, String camiFitxerImatge, String autor, String codec, int kbps) throws ReproException{
         
     }
