@@ -20,12 +20,36 @@ public class Dades implements Serializable{
         File fitxerImatge = new File(camiFitxerImatge);
         Motor motor = new Motor();
         Audio audio = new Audio(camiFitxerAudio, fitxerImatge, autor, codec, kbps, motor);
-        repositori.addFitxer(audio);
+        
+        String nomIm = fitxerImatge.getName(), nomAu = audio.getNomFitxer();
+        String imExt = nomIm.substring(nomIm.lastIndexOf(".")), auExt = nomAu.substring(nomAu.lastIndexOf("."));
+        if (isImatge(imExt) && isAudio(auExt))
+            repositori.addFitxer(audio);
+        else
+            throw new ReproException("Error a l'afegir el fitxer.");
     }
     
     public void addImatge(String cami, String autor, String codec, int pixelsAlcada, int pixelsAmplada) throws ReproException{
         Motor motor = new Motor();
         Imatge imatge = new Imatge(cami, autor, codec, pixelsAlcada, pixelsAmplada, motor);
-        repositori.addFitxer(imatge);
+        
+        String nomIm = imatge.getNomFitxer();
+        String imExt = nomIm.substring(nomIm.lastIndexOf("."));
+        if (isImatge(imExt))
+            repositori.addFitxer(imatge);
+        else
+            throw new ReproException("Error a l'afegir el fitxer.");
+    }
+    
+    public boolean isAudio(String ext){
+        if (ext.equals("mp3") || ext.equals("wav"))
+            return true;
+        return false;
+    }
+    
+    public boolean isImatge(String ext){
+        if (ext.equals("png") || ext.equals("jpg") || ext.equals("jpeg"))
+            return true;
+        return false;
     }
 }
