@@ -82,6 +82,10 @@ public abstract class FitxerMultimedia extends File implements InFile {
         return autor;
     }
     
+    public String getCodec(){
+        return codec;
+    }
+    
     /**
      * Assigna l'autor del fitxer al autor passat per paràmetre.
      * @param string Autor del fitxer.
@@ -99,7 +103,8 @@ public abstract class FitxerMultimedia extends File implements InFile {
      */
     public boolean equals(FitxerMultimedia fitxerMultimedia){
         boolean equal = false;
-        if (getCamiAbsolut().equals(fitxerMultimedia.getCamiAbsolut()) && getAutor().equals(fitxerMultimedia.getAutor())){
+        if (getCamiAbsolut().equals(fitxerMultimedia.getCamiAbsolut()) && getName().equals(fitxerMultimedia.getName())
+                && getAutor().equals(fitxerMultimedia.getAutor()) && getCodec().equals(fitxerMultimedia.getCodec())){
             equal = true;
         }
         return equal;
