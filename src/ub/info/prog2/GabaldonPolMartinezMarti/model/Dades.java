@@ -31,9 +31,8 @@ public class Dades implements Serializable{
         return portafolis;
     }
     
-    public void addAudio(String camiFitxerAudio, String camiFitxerImatge, String autor, String codec, int kbps) throws ReproException{
+    public void addAudio(String camiFitxerAudio, String camiFitxerImatge, String autor, String codec, int kbps, Motor motor) throws ReproException{
         File fitxerImatge = new File(camiFitxerImatge);
-        Motor motor = new Motor();
         Audio audio = new Audio(camiFitxerAudio, fitxerImatge, autor, codec, kbps, motor);
         
         String nomIm = fitxerImatge.getName(), nomAu = audio.getNomFitxer();
@@ -44,8 +43,7 @@ public class Dades implements Serializable{
             throw new ReproException("Error a l'afegir el fitxer.");
     }
     
-    public void addImatge(String cami, String autor, String codec, int pixelsAlcada, int pixelsAmplada) throws ReproException{
-        Motor motor = new Motor();
+    public void addImatge(String cami, String autor, String codec, int pixelsAlcada, int pixelsAmplada, Motor motor) throws ReproException{
         Imatge imatge = new Imatge(cami, autor, codec, pixelsAlcada, pixelsAmplada, motor);
         
         String nomIm = imatge.getNomFitxer();
@@ -96,18 +94,17 @@ public class Dades implements Serializable{
         
     }
     
-    public void loadDades(String cami) throws ReproException {
+    public static Dades loadDades(String cami) throws ReproException {
         File fitxer = new File(cami);
         if (fitxer.exists()){
             try{
                 FileInputStream fin = new FileInputStream(fitxer);           
                 ObjectInputStream ois = new ObjectInputStream(fin);            
                 Dades d = (Dades)ois.readObject();
-                repositori = d.getRepositori();
-                portafolis = d.getPortafolis();
                 fin.close();
                 ois.close();
                 System.out.println("Llista guardada exitosament.");
+                return d;
             }
             catch (IOException | ClassNotFoundException e){
                 throw new ReproException(e.getMessage());
@@ -119,24 +116,13 @@ public class Dades implements Serializable{
     }
     
     public void addPortafoli(String titol) throws ReproException{
-        if (!portafoliExists(titol)) {
+        if (!existPortafoli(titol)) {
             PortafoliFitxersMultimedia portafoli = new PortafoliFitxersMultimedia(titol);
             portafolis.add(portafoli);
         }
         else{
             throw new ReproException("Ja existeix un portafoli amb aquest titol.");
         }
-    }
-    
-    public boolean portafoliExists(String titol){
-        Iterator<PortafoliFitxersMultimedia> iter = portafolis.iterator();
-        boolean exists = false;
-        while(iter.hasNext() && !exists){
-            if(iter.next().getTitol().equals(titol)) {
-                exists = true;
-            }
-        }
-        return exists;
     }
     
     public List<String> showPortafolis() {
@@ -152,10 +138,10 @@ public class Dades implements Serializable{
     }
     
     public List<String> showPortafoli(String titol) throws ReproException{
-        Iterator<PortafoliFitxersMultimedia> iter = portafolis.iterator();
-        PortafoliFitxersMultimedia portafoli = new PortafoliFitxersMultimedia("");
         
-        if (portafoliExists(titol)) {
+        if (existPortafoli(titol)) {
+            Iterator<PortafoliFitxersMultimedia> iter = portafolis.iterator();
+            PortafoliFitxersMultimedia portafoli = new PortafoliFitxersMultimedia("");
             boolean trobat = false;
             while (iter.hasNext() && !trobat) {
                 portafoli = iter.next();
@@ -171,5 +157,32 @@ public class Dades implements Serializable{
         else{
             throw new ReproException("Aquest portafoli no existeix.");
         }
+    }
+    
+    public void removePortafoli(String titol) throws ReproException {
+        if (existPortafoli(titol)) {
+            Iterator<PortafoliFitxersMultimedia> iter = portafolis.iterator();
+            int i = 0;
+            while (iter.hasNext()) {
+                if(iter.next().getTitol().equals(titol)) {
+                    portafolis.remove(i);
+                }
+                i++;
+            }
+        }
+        else{
+            throw new ReproException("Aquest portafoli no existeix.");
+        }
+    }
+    
+    public boolean existPortafoli(String titol){
+        Iterator<PortafoliFitxersMultimedia> iter = portafolis.iterator();
+        boolean exists = false;
+        while(iter.hasNext() && !exists){
+            if(iter.next().getTitol().equals(titol)) {
+                exists = true;
+            }
+        }
+        return exists;
     }
 }

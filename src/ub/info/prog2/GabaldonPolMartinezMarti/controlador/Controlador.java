@@ -14,19 +14,21 @@ import ub.info.prog2.GabaldonPolMartinezMarti.model.Dades;
  */
 public class Controlador implements InControlador {
     private Dades dades;
+    private final Motor motor;
     
     public Controlador(){
         dades = new Dades();
+        motor = new Motor();
     }
     
     @Override
     public void addAudio(String camiFitxerAudio, String camiFitxerImatge, String autor, String codec, int kbps) throws ReproException{
-        dades.addAudio(camiFitxerAudio,camiFitxerImatge,autor,codec,kbps);
+        dades.addAudio(camiFitxerAudio,camiFitxerImatge,autor,codec,kbps, motor);
     }
 
     @Override
     public void addImatge(String cami, String autor, String codec, int pixelsAlcada, int pixelsAmplada) throws ReproException{
-        dades.addImatge(cami, autor, codec, pixelsAlcada, pixelsAmplada);
+        dades.addImatge(cami, autor, codec, pixelsAlcada, pixelsAmplada, motor);
     }
 
     @Override
@@ -46,7 +48,7 @@ public class Controlador implements InControlador {
 
     @Override
     public void loadDades(String cami) throws ReproException{
-        dades.loadDades(cami);
+        dades = Dades.loadDades(cami);
     }
 
     @Override
@@ -65,13 +67,13 @@ public class Controlador implements InControlador {
     }
 
     @Override
-    public void removePortafoli(String string) throws ReproException{
-        
+    public void removePortafoli(String titol) throws ReproException{
+        dades.removePortafoli(titol);
     }
 
     @Override
-    public boolean existPortafoli(String string){
-        
+    public boolean existPortafoli(String titol){
+        return dades.existPortafoli(titol);
     }
 
     @Override
