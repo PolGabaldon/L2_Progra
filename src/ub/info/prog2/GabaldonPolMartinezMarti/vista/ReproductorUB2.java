@@ -213,7 +213,7 @@ public class ReproductorUB2 {
                     opcio1 = sc.nextInt();
                     }
                     if(opcio1 == 1){
-                        controlador.showRepositori();
+                        System.out.println(controlador.showRepositori().get(0));
                         System.out.print("Digues el número del fitxer que vols eliminar: ");
                         fitxer = sc.nextInt();
                         try{
@@ -224,7 +224,7 @@ public class ReproductorUB2 {
                         }
                     }
                     else if(opcio1 ==2){
-                        controlador.showPortafolis();
+                        System.out.println(controlador.showPortafolis().get(0));
                         System.out.println("De quin portafoli vols eliminar el fitxer?");
                         nom = sc.nextLine();
                         System.out.println("Digues el número del fitxer que vols eliminar:");
