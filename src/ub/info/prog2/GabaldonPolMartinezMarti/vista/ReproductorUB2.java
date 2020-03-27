@@ -136,7 +136,7 @@ public class ReproductorUB2 {
                     break;
                    
                 case MOSTRAR_PORTAFOLIS:
-                    controlador.showPortafolis();
+                    System.out.println(controlador.showPortafolis().get(0));
                     break;
                     
                 case ELIMINAR_PORTAFOLI:
@@ -188,7 +188,7 @@ public class ReproductorUB2 {
                     opcio1 = sc.nextInt();
                     }
                     if(opcio1 == 1){
-                        controlador.showRepositori();
+                        System.out.println(controlador.showRepositori().get(0));
                     }
                     else if(opcio1 ==2){
                         System.out.println(controlador.showPortafolis().get(0));
