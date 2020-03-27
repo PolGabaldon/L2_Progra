@@ -193,7 +193,6 @@ public class ReproductorUB2 {
                     else if(opcio1 ==2){
                         System.out.println(controlador.showPortafolis().get(0));
                         System.out.println("Quin portafoli vols mostrar?");
-                        sc.next();
                         nom = sc.nextLine();
                         try{
                             System.out.println(controlador.showPortafoli(nom).get(0));

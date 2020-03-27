@@ -64,6 +64,7 @@ public class Controlador implements InControlador {
     @Override
     public List<String> showPortafoli(String titol) throws ReproException{
         return dades.showPortafoli(titol);
+        
     }
 
     @Override
@@ -84,7 +85,5 @@ public class Controlador implements InControlador {
     @Override
     public void removeFitxer(String titol, int i) throws ReproException{
         dades.removeFitxer(titol, i);
-    }
-
-
+    }          
 }
