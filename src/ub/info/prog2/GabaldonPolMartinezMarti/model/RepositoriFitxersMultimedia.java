@@ -55,10 +55,5 @@ public class RepositoriFitxersMultimedia extends LlistaFitxers{
        
 }
 
-    /**
-     * Elimina la primera instància del fitxer passat per paràmetre que troba.
-     * @param file Fitxer que es desitja eliminar.
-     */
-
     
 

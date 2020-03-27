@@ -140,15 +140,7 @@ public class Dades implements Serializable{
     public List<String> showPortafoli(String titol) throws ReproException{
         
         if (existPortafoli(titol)) {
-            Iterator<PortafoliFitxersMultimedia> iter = portafolis.iterator();
-            PortafoliFitxersMultimedia portafoli = new PortafoliFitxersMultimedia("");
-            boolean trobat = false;
-            while (iter.hasNext() && !trobat) {
-                portafoli = iter.next();
-                if (portafoli.getTitol().equals(titol)) {
-                    trobat = true;
-                }
-            }
+            PortafoliFitxersMultimedia portafoli = getPortafoli(titol);
             String s = portafoli.toString();
             ArrayList<String> list = new ArrayList<>();
             list.add(s);
@@ -163,9 +155,12 @@ public class Dades implements Serializable{
         if (existPortafoli(titol)) {
             Iterator<PortafoliFitxersMultimedia> iter = portafolis.iterator();
             int i = 0;
-            while (iter.hasNext()) {
+            boolean trobat = false;
+            
+            while (iter.hasNext() && !trobat) {
                 if(iter.next().getTitol().equals(titol)) {
                     portafolis.remove(i);
+                    trobat = true;
                 }
                 i++;
             }
@@ -184,5 +179,44 @@ public class Dades implements Serializable{
             }
         }
         return exists;
+    }
+    
+    public void addFitxer(String titol, int i) throws ReproException {
+        if (existPortafoli(titol)) {
+            if (i > 0 && i <= repositori.getSize()){
+                getPortafoli(titol).addFitxer(repositori.getAt(i - 1));
+            }
+            else{
+                throw new ReproException("L'index està fora de límits.");
+            }
+        }
+        else{
+            throw new ReproException("El portafoli no existex");
+        }
+    }
+    
+    public void removeFitxer(String titol, int i) throws ReproException{
+        if (existPortafoli(titol)) {
+            PortafoliFitxersMultimedia portafoli = getPortafoli(titol);
+            portafoli.removeFitxer(i - 1);
+        }
+        else{
+            throw new ReproException("El portafoli no existex");
+        }
+    }
+    
+    public PortafoliFitxersMultimedia getPortafoli(String titol) {
+        Iterator<PortafoliFitxersMultimedia> iter = portafolis.iterator();
+        PortafoliFitxersMultimedia portafoli = new PortafoliFitxersMultimedia("");
+        boolean trobat = false;
+        
+        while (!trobat && iter.hasNext()) {
+            portafoli = iter.next();
+            if (portafoli.getTitol().equals(titol)) {
+                trobat = true;
+            }
+        }
+        
+        return portafoli;
     }
 }

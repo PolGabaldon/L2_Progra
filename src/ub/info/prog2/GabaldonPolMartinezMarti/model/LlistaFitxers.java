@@ -72,7 +72,7 @@ public class LlistaFitxers implements InFileList, Serializable{
     }
     
     public void removeFitxer(int i) throws ReproException{
-        if(0 <= i && i< llistaFitxers.size()){
+        if(0 <= i && i < llistaFitxers.size()){
             llistaFitxers.remove(i);
         }
         else {

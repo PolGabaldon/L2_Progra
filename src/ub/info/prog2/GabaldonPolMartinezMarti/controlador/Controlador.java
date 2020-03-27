@@ -77,13 +77,13 @@ public class Controlador implements InControlador {
     }
 
     @Override
-    public void addFitxer(String string, int i) throws ReproException{
-        
+    public void addFitxer(String titol, int i) throws ReproException{
+        dades.addFitxer(titol, i);
     }
 
     @Override
-    public void removeFitxer(String string, int i) throws ReproException{
-        
+    public void removeFitxer(String titol, int i) throws ReproException{
+        dades.removeFitxer(titol, i);
     }
 
 
