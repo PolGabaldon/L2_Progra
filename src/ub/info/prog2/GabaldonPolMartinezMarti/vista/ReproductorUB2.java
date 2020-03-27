@@ -161,10 +161,10 @@ public class ReproductorUB2 {
                                         
                     }
                     if(opcio1 == 1){
-                        controlador.showPortafolis();
+                        System.out.println(controlador.showPortafolis().get(0));
                         System.out.println("A quin portafolis vols afegir el fitxer?");
                         nom = sc.nextLine();
-                        controlador.showRepositori();
+                        System.out.println(controlador.showRepositori().get(0));
                         System.out.println("Quin dels fitxers del repositori vols afegir?");
                         fitxer = sc.nextInt();
                         try{
@@ -193,6 +193,7 @@ public class ReproductorUB2 {
                     else if(opcio1 ==2){
                         System.out.println(controlador.showPortafolis().get(0));
                         System.out.println("Quin portafoli vols mostrar?");
+                        sc.next();
                         nom = sc.nextLine();
                         try{
                             System.out.println(controlador.showPortafoli(nom).get(0));
