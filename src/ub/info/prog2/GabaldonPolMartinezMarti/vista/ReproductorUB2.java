@@ -191,11 +191,11 @@ public class ReproductorUB2 {
                         controlador.showRepositori();
                     }
                     else if(opcio1 ==2){
-                        controlador.showPortafolis();
+                        System.out.println(controlador.showPortafolis().get(0));
                         System.out.println("Quin portafoli vols mostrar?");
                         nom = sc.nextLine();
                         try{
-                            controlador.showPortafoli(nom);
+                            System.out.println(controlador.showPortafoli(nom).get(0));
                         }
                         catch(ReproException e){
                             System.out.println(e.getCause());                                                                                
