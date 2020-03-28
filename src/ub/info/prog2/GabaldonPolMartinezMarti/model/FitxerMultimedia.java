@@ -95,13 +95,9 @@ public abstract class FitxerMultimedia extends File implements InFile {
         autor = string;
     }
     
-    /**
-     * Compara el fitxer multimèdia actual amb un passat per paràmetre i retorna
-     * un booleà segons si són iguals.
-     * @param fitxerMultimedia Fitxer multimèdia amb el que es vol fer la comparació.
-     * @return Booleà segons si els dos fitxers multimèdia són iguals.
-     */
-    public boolean equals(FitxerMultimedia fitxerMultimedia){
+    @Override
+    public boolean equals(Object file){
+        FitxerMultimedia fitxerMultimedia = (FitxerMultimedia)file;
         boolean equal = false;
         if (getCamiAbsolut().equals(fitxerMultimedia.getCamiAbsolut()) && getName().equals(fitxerMultimedia.getName())
                 && getAutor().equals(fitxerMultimedia.getAutor()) && getCodec().equals(fitxerMultimedia.getCodec())){

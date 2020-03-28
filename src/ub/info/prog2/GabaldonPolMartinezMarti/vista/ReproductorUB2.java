@@ -154,14 +154,17 @@ public class ReproductorUB2 {
                 case AFEGIR_FITXER:
                     opcio1 = 0;
                     while(opcio1 !=1 && opcio1 !=2 && opcio1 != 3){
-                        System.out.println("        1.- Afegir un fitxer a un portafolis\n"
-                                + "        2.- Afegir un fitxer al repositori\n"
+                        System.out.println("        1.- Afegir un fitxer al repositori\n" 
+                                + "        2.- Afegir un fitxer a un portafolis\n"
                                 + "        3.- Sortir");
                         opcio1 = sc.nextInt();
                         sc.nextLine();
                                         
                     }
                     if(opcio1 == 1){
+                        gestioMenu3(sc);
+                    }
+                    else if(opcio1 == 2){
                         System.out.println(controlador.showPortafolis().get(0));
                         System.out.println("A quin portafolis vols afegir el fitxer?");
                         nom = sc.nextLine();
@@ -172,12 +175,10 @@ public class ReproductorUB2 {
                         controlador.addFitxer(nom, fitxer);
                         }
                         catch(ReproException e){
-                            System.out.println(e.getCause());                                                    
+                            System.out.println(e.getCause());
                         }
                     }
-                    else if(opcio1 == 2){
-                        gestioMenu3(sc);
-                    }
+                    
                     break;
                     
                 case MOSTRAR_FITXERS:
@@ -230,10 +231,12 @@ public class ReproductorUB2 {
                         System.out.println(controlador.showPortafolis().get(0));
                         System.out.println("De quin portafoli vols eliminar el fitxer?");
                         nom = sc.nextLine();
-                        System.out.println("Digues el número del fitxer que vols eliminar:");
-                        fitxer = sc.nextInt();
-                        sc.nextLine();
+                        
                         try{
+                            System.out.println(controlador.showPortafoli(nom).get(0));
+                            System.out.println("Digues el número del fitxer que vols eliminar:");
+                            fitxer = sc.nextInt();
+                            sc.nextLine();
                             controlador.removeFitxer(nom, fitxer - 1);
                         }
                         catch(ReproException e){
@@ -304,7 +307,7 @@ public class ReproductorUB2 {
                     sc.nextLine();
 
                     try{
-                    controlador.addImatge(cami1, nom, codec, i, j);
+                        controlador.addImatge(cami1, nom, codec, i, j);
                     }
                     catch(ReproException e){
                         System.out.println(e.getCause());                                                    

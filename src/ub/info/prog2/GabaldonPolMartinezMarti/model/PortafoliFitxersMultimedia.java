@@ -54,10 +54,7 @@ public class PortafoliFitxersMultimedia extends LlistaFitxers{
     }
     
     private boolean autorCorrecte(FitxerMultimedia file){
-        if(file.getAutor().equals(this.autor))
-            return true;
-        else
-            return false;
+        return file.getAutor().equals(PortafoliFitxersMultimedia.autor);
     }
     
     @Override

@@ -31,7 +31,7 @@ public class RepositoriFitxersMultimedia extends LlistaFitxers{
      */
     @Override
     public void addFitxer(File file) throws ReproException {
-        if(!isCorrect(file)){
+        if(isCorrect(file)){
             super.addFitxer(file);
         }
         else{
@@ -40,7 +40,7 @@ public class RepositoriFitxersMultimedia extends LlistaFitxers{
            
     }
     
-    public boolean isCorrect(File file) throws ReproException{
+    private boolean isCorrect(File file) {
         int i = 0;
         boolean repetit = false;
         while(i < getSize() && !repetit){
@@ -49,7 +49,7 @@ public class RepositoriFitxersMultimedia extends LlistaFitxers{
             else
                 i++;               
         }
-        return repetit;
+        return !repetit;
         
     }
     

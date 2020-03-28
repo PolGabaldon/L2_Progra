@@ -198,7 +198,7 @@ public class Dades implements Serializable{
     public void removeFitxer(String titol, int i) throws ReproException{
         if (existPortafoli(titol)) {
             PortafoliFitxersMultimedia portafoli = getPortafoli(titol);
-            portafoli.removeFitxer(i - 1);
+            portafoli.removeFitxer(i);
         }
         else{
             throw new ReproException("El portafoli no existex");
