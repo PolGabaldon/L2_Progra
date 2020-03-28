@@ -52,7 +52,15 @@ public class RepositoriFitxersMultimedia extends LlistaFitxers{
         return repetit;
         
     }
-       
+    
+    @Override
+    public String toString(){
+        String s = "Repositori:\n==============\n";
+        for(int i = 0; i < llistaFitxers.size(); i++){
+            s += "[" + (i + 1) + "] " + llistaFitxers.get(i).toString() + "\n";
+        }
+        return s;
+    }
 }
 
     

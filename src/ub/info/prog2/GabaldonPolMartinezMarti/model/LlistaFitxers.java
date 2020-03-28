@@ -114,8 +114,7 @@ public class LlistaFitxers implements InFileList, Serializable{
      */
     @Override
     public String toString(){
-        System.out.println("Carpeta Fitxers:\n==============");
-        String s = "";
+        String s = "Carpeta Fitxers:\\n==============\n";
         for(int i = 0; i < llistaFitxers.size(); i++){
             s += "[" + (i + 1) + "] " + llistaFitxers.get(i).toString() + "\n";
         }

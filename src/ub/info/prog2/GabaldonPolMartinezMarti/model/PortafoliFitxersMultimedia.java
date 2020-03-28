@@ -59,4 +59,13 @@ public class PortafoliFitxersMultimedia extends LlistaFitxers{
         else
             return false;
     }
+    
+    @Override
+    public String toString(){
+        String s = titol + ":\n==============\n";
+        for(int i = 0; i < llistaFitxers.size(); i++){
+            s += "[" + (i + 1) + "] " + llistaFitxers.get(i).toString() + "\n";
+        }
+        return s;
+    }
 }
