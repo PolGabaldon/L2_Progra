@@ -41,8 +41,8 @@ public class ReproductorUB2 {
     
     public ReproductorUB2(){
         menu = new Menu<OpcionsMenuPrincipal>("Menu Principal",ReproductorUB2.OpcionsMenuPrincipal.values());
-        subMenu1 = new Menu<OpcionsSubmenu1>("Menu Secundari",ReproductorUB2.OpcionsSubmenu1.values());
-        subMenu2 = new Menu<OpcionsSubmenu2>("Subemnú",ReproductorUB2.OpcionsSubmenu2.values());
+        subMenu1 = new Menu<OpcionsSubmenu1>("Gestió Fitxers",ReproductorUB2.OpcionsSubmenu1.values());
+        subMenu2 = new Menu<OpcionsSubmenu2>("Afegir Fitxer",ReproductorUB2.OpcionsSubmenu2.values());
         controlador = new Controlador();
 
     }
@@ -154,9 +154,9 @@ public class ReproductorUB2 {
                 case AFEGIR_FITXER:
                     opcio1 = 0;
                     while(opcio1 !=1 && opcio1 !=2 && opcio1 != 3){
-                        System.out.println("Pitja 1 per afegir un fitxer a un portafolis\n"
-                                + "Pitja 2 per afegir un fitxer al repositori\n"
-                                + "Pitja 3 per sortir");
+                        System.out.println("        1.- Afegir un fitxer a un portafolis\n"
+                                + "        2.- Afegir un fitxer al repositori\n"
+                                + "        3.- Sortir");
                         opcio1 = sc.nextInt();
                         sc.nextLine();
                                         
@@ -183,9 +183,9 @@ public class ReproductorUB2 {
                 case MOSTRAR_FITXERS:
                     opcio1 = 0;
                     while(opcio1 != 1 && opcio1 !=2 && opcio1 !=3){
-                    System.out.println("Pitja 1 per mostrar el repositori\n"
-                            + "Pitja 2 per mostrar un portafoli\n"
-                            + "Pitja 3 per sortir");
+                    System.out.println("        1.- Mostrar el repositori\n"
+                            + "        2.- Mostrar un portafoli\n"
+                            + "        2.- Sortir");
                     opcio1 = sc.nextInt();
                     sc.nextLine();
                     }
@@ -208,9 +208,9 @@ public class ReproductorUB2 {
                 case ELIMINAR_FITXER:
                     opcio1 = 0;
                     while(opcio1 != 1 && opcio1 != 2 && opcio1 != 3){
-                    System.out.println("Pitja 1 per eliminar un fitxer del repositori\n"
-                            + "Pitja 2 per eliminar un fitxer d'un portafoli\n"
-                            + "Pitja 3 per sortir");
+                    System.out.println("        1.- Eliminar un fitxer del repositori\n"
+                            + "        2.- Eliminar un fitxer d'un portafoli\n"
+                            + "        3.- Sortir");
                     opcio1 = sc.nextInt();
                     sc.nextLine();
                     }
@@ -220,7 +220,7 @@ public class ReproductorUB2 {
                         fitxer = sc.nextInt();
                         sc.nextLine();
                         try{
-                            controlador.removeFitxer(fitxer);
+                            controlador.removeFitxer(fitxer - 1);
                         }
                         catch(ReproException e){
                             System.out.println(e.getCause());
@@ -234,7 +234,7 @@ public class ReproductorUB2 {
                         fitxer = sc.nextInt();
                         sc.nextLine();
                         try{
-                            controlador.removeFitxer(nom, fitxer);
+                            controlador.removeFitxer(nom, fitxer - 1);
                         }
                         catch(ReproException e){
                             System.out.println(e.getCause());                                                                                
