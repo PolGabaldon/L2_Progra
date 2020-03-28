@@ -55,11 +55,11 @@ public class Dades implements Serializable{
     }
     
     private boolean isAudio(String ext){
-        return ext.equals("mp3") || ext.equals("wav");
+        return ext.equals(".mp3") || ext.equals(".wav");
     }
     
     private boolean isImatge(String ext){
-        return ext.equals("png") || ext.equals("jpg") || ext.equals("jpeg");
+        return ext.equals(".png") || ext.equals(".jpg") || ext.equals(".jpeg");
     }
     
     public List<String> showRepositori(){

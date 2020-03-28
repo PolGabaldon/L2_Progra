@@ -19,5 +19,13 @@ public class Audio extends FitxerMultimedia{
     public void reproduir() throws ReproException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    @Override
+    public String toString(){
+        String s;
+        s = "Tipus = Audio, Autor = " + getAutor() + ", Data = " + getUltimaModificacio() + ",\n    Cami complet = " + getCamiAbsolut()
+                + ",\n    Kbps = " + kbps + ", Imatge Associada = " + fitxerImatge.getAbsolutePath() + "\n";
+        return s;
+    }
+    
     
 }

@@ -19,4 +19,12 @@ public class Imatge extends FitxerMultimedia{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public String toString(){
+        String s;
+        s = "Tipus = Imatge, Autor = " + getAutor() + ", Data = " + getUltimaModificacio() + ",\n    Cami complet = " + getCamiAbsolut()
+                + ",\n    Resolució = " + resolucio + "\n";
+        return s;
+    }
+    
 }
