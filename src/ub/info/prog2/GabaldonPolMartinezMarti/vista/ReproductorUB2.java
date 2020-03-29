@@ -77,8 +77,8 @@ public class ReproductorUB2 {
                         System.out.println("Llista guardada exitosament.");
                     }
                     catch(ReproException e){
-                        System.out.println(e.toString());                        
-                    }                    
+                        System.out.println(e.toString());
+                    }
                     break;
                     
                 case RECUPERAR_DADES:

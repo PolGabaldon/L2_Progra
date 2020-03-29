@@ -78,14 +78,19 @@ public class Dades implements Serializable{
         if (fitxer.exists()){
             try{
                 FileOutputStream fout = new FileOutputStream(fitxer);
+                System.out.println("fout created");
                 ObjectOutputStream oos = new ObjectOutputStream(fout);
+                System.out.println("oos created");
                 oos.writeObject(this);
+                System.out.println("written this");
                 oos.close();
+                System.out.println("oos closed");
                 fout.close();
+                System.out.println("fout closed");
             }
             catch (IOException e){
-                System.out.println("hi");
-                throw new ReproException(e.getMessage());
+                System.out.println("Thrown ioexcept");
+                throw new ReproException(e.toString());
             }
         }
         else{

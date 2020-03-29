@@ -2,9 +2,10 @@ package ub.info.prog2.GabaldonPolMartinezMarti.model;
 import java.io.File;
 import ub.info.prog2.GabaldonPolMartinezMarti.controlador.Motor;
 import ub.info.prog2.utils.ReproException;
+import java.io.Serializable;
 
 
-public class Audio extends FitxerMultimedia{
+public class Audio extends FitxerMultimedia implements Serializable{
     
     private final int kbps;
     private final File fitxerImatge;

@@ -1,9 +1,10 @@
 package ub.info.prog2.GabaldonPolMartinezMarti.model;
 import ub.info.prog2.GabaldonPolMartinezMarti.controlador.Motor;
 import ub.info.prog2.utils.ReproException;
+import java.io.Serializable;
 
 
-public class Imatge extends FitxerMultimedia{
+public class Imatge extends FitxerMultimedia implements Serializable{
     
     private final int alcada, amplada, resolucio;
     
