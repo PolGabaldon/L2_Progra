@@ -77,7 +77,7 @@ public class ReproductorUB2 {
                         System.out.println("Llista guardada exitosament.");
                     }
                     catch(ReproException e){
-                        System.out.println(e.getCause());                        
+                        System.out.println(e.toString());                        
                     }                    
                     break;
                     
@@ -89,7 +89,7 @@ public class ReproductorUB2 {
                         System.out.println("Llista recuperada exitosament.");
                     }
                     catch(ReproException e){
-                        System.out.println(e.getCause());                        
+                        System.out.println(e.toString());                        
                     }                    
                     break;
                 
@@ -131,7 +131,7 @@ public class ReproductorUB2 {
                         controlador.addPortafoli(nom);
                     }
                     catch(ReproException e){
-                        System.out.println(e.getCause());                        
+                        System.out.println(e.toString());                        
                         
                     }
                     
@@ -148,7 +148,7 @@ public class ReproductorUB2 {
                         controlador.removePortafoli(nom);
                     }
                     catch(ReproException e){
-                        System.out.println(e.getCause());                        
+                        System.out.println(e.toString());                        
                         
                     }
                     break;
@@ -177,7 +177,7 @@ public class ReproductorUB2 {
                         controlador.addFitxer(nom, fitxer);
                         }
                         catch(ReproException e){
-                            System.out.println(e.getCause());
+                            System.out.println(e.toString());
                         }
                     }
                     
@@ -203,7 +203,7 @@ public class ReproductorUB2 {
                             System.out.println(controlador.showPortafoli(nom).get(0));
                         }
                         catch(ReproException e){
-                            System.out.println(e.getCause());                                                                                
+                            System.out.println(e.toString());                                                                                
                         }
                     }
                     break;
@@ -226,7 +226,7 @@ public class ReproductorUB2 {
                             controlador.removeFitxer(fitxer - 1);
                         }
                         catch(ReproException e){
-                            System.out.println(e.getCause());
+                            System.out.println(e.toString());
                         }
                     }
                     else if(opcio1 == 2){
@@ -242,7 +242,7 @@ public class ReproductorUB2 {
                             controlador.removeFitxer(nom, fitxer - 1);
                         }
                         catch(ReproException e){
-                            System.out.println(e.getCause());                                                                                
+                            System.out.println(e.toString());                                                                                
                         }
                     }
                     break;
@@ -289,7 +289,7 @@ public class ReproductorUB2 {
                         controlador.addAudio(cami1, cami2, nom, codec, i);
                     }
                     catch(ReproException e){
-                        System.out.println(e.getCause());                                                    
+                        System.out.println(e.toString());                                                    
                         
                     }
                     break;
@@ -312,7 +312,7 @@ public class ReproductorUB2 {
                         controlador.addImatge(cami1, nom, codec, i, j);
                     }
                     catch(ReproException e){
-                        System.out.println(e.getCause());                                                    
+                        System.out.println(e.toString());                                                    
                         
                     }
                             

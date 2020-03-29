@@ -12,5 +12,7 @@ import ub.info.prog2.utils.MotorBasic;
  * @author polg24
  */
 public class Motor extends MotorBasic{
-    
+    public Motor(){
+        super("C:\\Program Files\\VideoLAN\\VLC");
+    }
 }
