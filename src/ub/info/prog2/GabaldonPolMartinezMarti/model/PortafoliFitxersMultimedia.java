@@ -15,7 +15,7 @@ import java.io.Serializable;
  */
 public class PortafoliFitxersMultimedia extends LlistaFitxers implements Serializable{
     private String titol;
-    private static String autor;
+    private String autor;
     
     
     public PortafoliFitxersMultimedia(String titol){
@@ -35,9 +35,9 @@ public class PortafoliFitxersMultimedia extends LlistaFitxers implements Seriali
      */
     @Override
     public void addFitxer(File file) throws ReproException {
-                       
+        System.out.println(autor + " Titol: " +  titol);               
         
-        if(getSize()==0){
+        if(getSize() == 0){
             FitxerMultimedia fitxer = (FitxerMultimedia) file;
             autor = fitxer.getAutor();
             super.addFitxer(file);
@@ -55,7 +55,7 @@ public class PortafoliFitxersMultimedia extends LlistaFitxers implements Seriali
     }
     
     private boolean autorCorrecte(FitxerMultimedia file){
-        return file.getAutor().equals(PortafoliFitxersMultimedia.autor);
+        return file.getAutor().equals(autor);
     }
     
     @Override
