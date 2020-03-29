@@ -13,21 +13,23 @@ import ub.info.prog2.utils.ReproException;
  * @author GabaldonPolMartinezMarti
  */
 public class ReproductorUB2 {
-    // Declarem les opcions per a referir-se a les opcions del menÃº.
+    // Declarem les opcions per a referir-se a les opcions dels menus
     static private enum OpcionsMenuPrincipal {GESTIO_FITXERS, GUARDAR_DADES, RECUPERAR_DADES, SORTIR};
     static private enum OpcionsSubmenu1 {CREAR_PORTAFOLI, MOSTRAR_PORTAFOLIS, ELIMINAR_PORTAFOLI, AFEGIR_FITXER, MOSTRAR_FITXERS, ELIMINAR_FITXER, MENU_ANTERIOR};
     static private enum OpcionsSubmenu2 {AFEGIR_AUDIO, AFEGIR_IMATGE, MENU_ANTERIOR};
     
-    // Declarem descripcions personalitzades per a les opcions del menÃº principal
+    // Declarem descripcions personalitzades per a les opcions del menu principal
     static private String[] descMenuPrincipal={"Menú gestió dels fitxers",
                                                "Guardar dades",
                                                "Recuperar dades",
                                                "Sortir"};
 
-    // Declarem descripcions personalitzades per a les opcions del menÃº secundari
+    // Declarem descripcions personalitzades per a les opcions del menu secundari
     static private String[] descMenu2={"Crear portafoli",
                                                 "Mostrar portafolis",
                                                 "Eliminar portafolis", "Agefir fitxer", "Mostrar fitxers", "Eliminar fitxer", "Tornar al menú anterior"};
+    
+    // Declarem descripcions personalitzades pera  les opcions del darrer menu
     static private String[] descMenu3={"Afegir fitxer d'àudio","Afegir fitxer d'imatge","Tornar al menú anterior"};
 
     /**
@@ -39,6 +41,7 @@ public class ReproductorUB2 {
     private Menu<ReproductorUB2.OpcionsSubmenu2> subMenu2;
     private Controlador controlador;
     
+   
     public ReproductorUB2(){
         menu = new Menu<>("Menu Principal",ReproductorUB2.OpcionsMenuPrincipal.values());
         subMenu1 = new Menu<>("Gestió Fitxers",ReproductorUB2.OpcionsSubmenu1.values());
@@ -46,7 +49,11 @@ public class ReproductorUB2 {
         controlador = new Controlador();
 
     }
-            
+    
+    /**
+     * 
+     * @param sc 
+     */
     public void gestioReproductorUB(Scanner sc){
         
         String cami;

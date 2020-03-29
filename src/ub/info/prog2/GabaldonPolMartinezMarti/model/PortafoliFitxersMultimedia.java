@@ -7,13 +7,12 @@ package ub.info.prog2.GabaldonPolMartinezMarti.model;
 
 import java.io.File;
 import ub.info.prog2.utils.ReproException;
-import java.io.Serializable;
 
 /**
  *
  * @author polg24
  */
-public class PortafoliFitxersMultimedia extends LlistaFitxers implements Serializable{
+public class PortafoliFitxersMultimedia extends LlistaFitxers {
     private String titol;
     private String autor;
     

@@ -7,13 +7,12 @@ package ub.info.prog2.GabaldonPolMartinezMarti.model;
 
 import java.io.File;
 import ub.info.prog2.utils.ReproException;
-import java.io.Serializable;
 
 /**
  *
  * @author polg24
  */
-public class RepositoriFitxersMultimedia extends LlistaFitxers implements Serializable{
+public class RepositoriFitxersMultimedia extends LlistaFitxers {
     
     /**
      * Constructor que inicialitza l'ArrayList i la mida màxima a 100 per defecte.
