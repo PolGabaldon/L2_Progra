@@ -77,14 +77,14 @@ public class Dades implements Serializable{
         File fitxer = new File(cami);
         if (fitxer.exists()){
             try{
-                FileOutputStream fout = new FileOutputStream(fitxer);            
-                ObjectOutputStream oos = new ObjectOutputStream(fout);            
+                FileOutputStream fout = new FileOutputStream(fitxer);
+                ObjectOutputStream oos = new ObjectOutputStream(fout);
                 oos.writeObject(this);
-                fout.close();
                 oos.close();
-                System.out.println("Llista guardada exitosament.");
+                fout.close();
             }
             catch (IOException e){
+                System.out.println("hi");
                 throw new ReproException(e.getMessage());
             }
         }
@@ -98,12 +98,12 @@ public class Dades implements Serializable{
         File fitxer = new File(cami);
         if (fitxer.exists()){
             try{
-                FileInputStream fin = new FileInputStream(fitxer);           
-                ObjectInputStream ois = new ObjectInputStream(fin);            
-                Dades d = (Dades)ois.readObject();
-                fin.close();
+                Dades d;
+                FileInputStream fin = new FileInputStream(fitxer);
+                ObjectInputStream ois = new ObjectInputStream(fin);
+                d = (Dades)ois.readObject();
                 ois.close();
-                System.out.println("Llista guardada exitosament.");
+                fin.close();
                 return d;
             }
             catch (IOException | ClassNotFoundException e){

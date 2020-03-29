@@ -40,9 +40,9 @@ public class ReproductorUB2 {
     private Controlador controlador;
     
     public ReproductorUB2(){
-        menu = new Menu<OpcionsMenuPrincipal>("Menu Principal",ReproductorUB2.OpcionsMenuPrincipal.values());
-        subMenu1 = new Menu<OpcionsSubmenu1>("Gestió Fitxers",ReproductorUB2.OpcionsSubmenu1.values());
-        subMenu2 = new Menu<OpcionsSubmenu2>("Afegir Fitxer",ReproductorUB2.OpcionsSubmenu2.values());
+        menu = new Menu<>("Menu Principal",ReproductorUB2.OpcionsMenuPrincipal.values());
+        subMenu1 = new Menu<>("Gestió Fitxers",ReproductorUB2.OpcionsSubmenu1.values());
+        subMenu2 = new Menu<>("Afegir Fitxer",ReproductorUB2.OpcionsSubmenu2.values());
         controlador = new Controlador();
 
     }
@@ -73,7 +73,8 @@ public class ReproductorUB2 {
                     System.out.println("Introdueix el camí del fitxer de disc on guardar les dades: ");
                     cami = sc.nextLine();
                     try{
-                    controlador.saveDades(cami);
+                        controlador.saveDades(cami);
+                        System.out.println("Llista guardada exitosament.");
                     }
                     catch(ReproException e){
                         System.out.println(e.getCause());                        
@@ -84,7 +85,8 @@ public class ReproductorUB2 {
                     System.out.println("Introdueix el camí del fitxer de disc d'on recuperar les dades: ");
                     cami = sc.nextLine();
                     try{
-                    controlador.loadDades(cami);
+                        controlador.loadDades(cami);
+                        System.out.println("Llista recuperada exitosament.");
                     }
                     catch(ReproException e){
                         System.out.println(e.getCause());                        
@@ -184,11 +186,11 @@ public class ReproductorUB2 {
                 case MOSTRAR_FITXERS:
                     opcio1 = 0;
                     while(opcio1 != 1 && opcio1 !=2 && opcio1 !=3){
-                    System.out.println("        1.- Mostrar el repositori\n"
-                            + "        2.- Mostrar un portafoli\n"
-                            + "        2.- Sortir");
-                    opcio1 = sc.nextInt();
-                    sc.nextLine();
+                        System.out.println("        1.- Mostrar el repositori\n"
+                                + "        2.- Mostrar un portafoli\n"
+                                + "        3.- Sortir");
+                        opcio1 = sc.nextInt();
+                        sc.nextLine();
                     }
                     if(opcio1 == 1){
                         System.out.println(controlador.showRepositori().get(0));
