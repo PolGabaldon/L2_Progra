@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author polg24
+ * @author GabaldonPolMartinezMarti
  */
 public class IniciadorReproductorUB {
     public static void main(String[] args){

@@ -9,8 +9,8 @@ import ub.info.prog2.utils.InControlador;
 import ub.info.prog2.utils.ReproException;
 import ub.info.prog2.GabaldonPolMartinezMarti.model.Dades;
 /**
- *
- * @author polg24
+ * Classe encarregada de gestionar la interacció entre els paquets vist i model, als mètodes d'aquesta classe simplement es criden als mètodes corresponents a la classe Dades
+ * @author GabaldonPolMartinezMarti
  */
 public class Controlador implements InControlador {
     private Dades dades;

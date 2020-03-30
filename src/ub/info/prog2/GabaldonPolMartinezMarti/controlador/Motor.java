@@ -8,11 +8,10 @@ import ub.info.prog2.utils.MotorBasic;
 import java.io.Serializable;
 
 /**
- *
+ * De moment classe sense mètodes
  * @author GabaldonPolMartinezMarti
  */
 public class Motor extends MotorBasic implements Serializable {
     public Motor(){
-        super("C:\\Program Files\\VideoLAN\\VLC");
     }
 }

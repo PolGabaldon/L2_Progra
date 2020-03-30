@@ -81,7 +81,10 @@ public abstract class FitxerMultimedia extends File implements InFile {
     public String getAutor() {
         return autor;
     }
-    
+    /**
+     * 
+     * @return Codec
+     */
     public String getCodec(){
         return codec;
     }
@@ -95,6 +98,11 @@ public abstract class FitxerMultimedia extends File implements InFile {
         autor = string;
     }
     
+    /**
+     * Mira si dos fitxers són iguals
+     * @param file Fitxer a comprovar
+     * @return Si són iguals
+     */
     @Override
     public boolean equals(Object file){
         FitxerMultimedia fitxerMultimedia = (FitxerMultimedia)file;
@@ -118,5 +126,9 @@ public abstract class FitxerMultimedia extends File implements InFile {
         return s;
     }
     
+    /**
+     * Mètode abstracte per reproduir
+     * @throws ReproException 
+     */
     public abstract void reproduir() throws ReproException;
 }

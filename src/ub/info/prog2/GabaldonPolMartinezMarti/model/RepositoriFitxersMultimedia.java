@@ -9,8 +9,8 @@ import java.io.File;
 import ub.info.prog2.utils.ReproException;
 
 /**
- *
- * @author polg24
+ * Classe que servirà per guardar els fitxers, hereda de LlistaFitxers
+ * @author GabaldonPolMartinezMarti
  */
 public class RepositoriFitxersMultimedia extends LlistaFitxers {
     
@@ -40,6 +40,11 @@ public class RepositoriFitxersMultimedia extends LlistaFitxers {
            
     }
     
+    /**
+     * Mira si un fitxer no estigui repetit
+     * @param file FItxer que es mira
+     * @return Retorna si és vàlid o si no ho és
+     */
     private boolean isCorrect(File file) {
         int i = 0;
         boolean repetit = false;
@@ -53,6 +58,10 @@ public class RepositoriFitxersMultimedia extends LlistaFitxers {
         
     }
     
+    /**
+     * Mètode sobreescrit per mostrar fitxer per fitxer del repositori
+     * @return Llista de tots els fitxers
+     */
     @Override
     public String toString(){
         String s = "Repositori:\n==============\n";

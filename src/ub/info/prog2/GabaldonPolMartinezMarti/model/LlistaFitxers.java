@@ -71,6 +71,11 @@ public class LlistaFitxers implements InFileList, Serializable{
         llistaFitxers.remove(id);
     }
     
+    /**
+     * Elimina un fitxer per l'índex
+     * @param i Índex del fitxerque es vol eliminar
+     * @throws ReproException Tira excepció si l'índex esta fora de l'array
+     */
     public void removeFitxer(int i) throws ReproException{
         if(0 <= i && i < llistaFitxers.size()){
             llistaFitxers.remove(i);

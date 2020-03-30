@@ -8,7 +8,7 @@ import ub.info.prog2.utils.ReproException;
 
 
 /**
- * Classe que representa un reproductor amb el mètode gestioReproductorUB1 per a
+ * Classe que representa un reproductor amb el mètode gestioReproductorUB2 per a
  * gestionar la reproducció de fitxers.
  * @author GabaldonPolMartinezMarti
  */
@@ -33,7 +33,7 @@ public class ReproductorUB2 {
     static private String[] descMenu3={"Afegir fitxer d'àudio","Afegir fitxer d'imatge","Tornar al menú anterior"};
 
     /**
-     * Fitxer principal. Crea el menÃº principal i un menÃº secundari
+     * Fitxer principal. Crea el menú principal i uns menús secundaris
      * @param args the command line arguments
      */
     private Menu<ReproductorUB2.OpcionsMenuPrincipal> menu;
@@ -51,8 +51,8 @@ public class ReproductorUB2 {
     }
     
     /**
-     * 
-     * @param sc 
+     * Menú primari
+     * @param sc Objecte de tipus Scanner que permet fer les entrades
      */
     public void gestioReproductorUB(Scanner sc){
         
@@ -111,7 +111,7 @@ public class ReproductorUB2 {
         
 
     /**
-     * MenÃº secundari
+     * Menu secundari
      * @param sc Objecte de tipus Scanner que permet accedir al teclat
      */
     public void gestioMenu2(Scanner sc){
@@ -261,7 +261,10 @@ public class ReproductorUB2 {
 
         } while(opcio!=ReproductorUB2.OpcionsSubmenu1.MENU_ANTERIOR);
     }
-    
+    /**
+     * Menú terciari
+     * @param sc Objecte de tipus Scanner per fer l'entrada de dades
+     */
     public void gestioMenu3(Scanner sc){
         String cami1, cami2, nom, codec;
         int i,j;
